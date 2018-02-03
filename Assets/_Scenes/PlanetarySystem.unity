@@ -314,7 +314,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.3333333}
+      m_Extent: {x: 0.4983333, y: 0, z: 0.5}
   m_Shapes:
     vertices: []
     shapes: []
@@ -367,7 +367,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000aaaaaabe000000000000803f000000000000000000000000000000bf00000000aaaaaa3e000000000000803f00000000000000000000803f0000003f00000000aaaaaabe000000000000803f000000000000803f000000000000003f00000000aaaaaa3e000000000000803f000000000000803f0000803f
+    _typelessdata: 8b25ffbe00000000000000bf000000000000803f0000000000000000000000008b25ffbe000000000000003f000000000000803f00000000000000000000803f8b25ff3e00000000000000bf000000000000803f000000000000803f000000008b25ff3e000000000000003f000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -444,7 +444,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.375}
+      m_Extent: {x: 0.5, y: 0, z: 0.28125}
   m_Shapes:
     vertices: []
     shapes: []
@@ -497,7 +497,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf000000000000c0be000000000000803f000000000000000000000000000000bf000000000000c03e000000000000803f00000000000000000000803f0000003f000000000000c0be000000000000803f000000000000803f000000000000003f000000000000c03e000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf00000000000090be000000000000803f000000000000000000000000000000bf000000000000903e000000000000803f00000000000000000000803f0000003f00000000000090be000000000000803f000000000000803f000000000000003f000000000000903e000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -568,8 +568,9 @@ GameObject:
   - component: {fileID: 778570744}
   - component: {fileID: 778570743}
   - component: {fileID: 778570742}
+  - component: {fileID: 778570745}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,7 +603,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1982e47155fd847fba92addb2e37f4c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -641,13 +642,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778570740}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &778570745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778570740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829b41f62d98b42ebad2d36c25ca3134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!21 &1169987501
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 2878353172_small_1Material
+  m_Name: sunMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -660,7 +672,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ed760572dfeb4c66abee0686530d6dac, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4d8a1582a11c42f2a7576a367df0da20, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -825,15 +837,15 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: IMG_3047
+  mTrackableName: meteor
   mPreserveChildSize: 0
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/newDB.xml
+  mDataSetPath: Vuforia/TargetImages.xml
   mExtendedTracking: 0
-  mAspectRatio: 0.75
+  mAspectRatio: 0.5625
   mImageTargetType: 0
   mWidth: 8
-  mHeight: 6
+  mHeight: 4.5
 --- !u!4 &1449758858
 Transform:
   m_ObjectHideFlags: 0
@@ -958,6 +970,7 @@ GameObject:
   - component: {fileID: 1986291692}
   - component: {fileID: 1986291691}
   - component: {fileID: 1986291695}
+  - component: {fileID: 1986291696}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -1045,6 +1058,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinSpeed: 10
   orbitSpeed: 20
+--- !u!114 &1986291696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986291690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682ce169f71874c46a99e690a47108de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2027500384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,15 +1163,15 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: 2878353172_small_1
+  mTrackableName: sun
   mPreserveChildSize: 0
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/newDB.xml
+  mDataSetPath: Vuforia/TargetImages.xml
   mExtendedTracking: 0
-  mAspectRatio: 0.6666666
+  mAspectRatio: 1.0033445
   mImageTargetType: 0
   mWidth: 8
-  mHeight: 5.333333
+  mHeight: 8.026756
 --- !u!4 &2027500390
 Transform:
   m_ObjectHideFlags: 0
@@ -1156,7 +1180,7 @@ Transform:
   m_GameObject: {fileID: 2027500384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 8.026756, y: 8.026756, z: 8.026756}
   m_Children:
   - {fileID: 209772790}
   m_Father: {fileID: 0}
@@ -1168,7 +1192,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: IMG_3047Material
+  m_Name: meteorMaterial
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -1181,7 +1205,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2ae7c89e17cd432a81e88e6f106720cf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 82576541a93e4635a5150fcd5792bc33, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
