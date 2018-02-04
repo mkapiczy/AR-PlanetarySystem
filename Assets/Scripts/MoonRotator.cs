@@ -17,8 +17,6 @@ public class MoonRotator : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		transform.Rotate(Vector3.up, spinSpeed * Time.deltaTime);
-
 		transform.RotateAround (earthObject.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
 	}
 }

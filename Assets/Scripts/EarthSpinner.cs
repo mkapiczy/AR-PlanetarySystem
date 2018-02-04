@@ -21,10 +21,10 @@ public class EarthSpinner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		transform.Rotate(Vector3.up, spinSpeed * Time.deltaTime);
 		transform.RotateAround (sunObject.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
 		if (isCollidingWithMeteor()) {
-			Instantiate (explosion, getIntersectionPoint(), Quaternion.identity);
+			GameObject explosionInstance = Instantiate (explosion, getIntersectionPoint(), Quaternion.identity);
+			Destroy (explosionInstance, 5f);
 		}
 	}
 
