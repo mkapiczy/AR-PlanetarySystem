@@ -9,12 +9,14 @@ public class EarthSpinner : MonoBehaviour {
 	private GameObject meteor;
 	public GameObject explosion;
 	private Vector3 meteorInitialPoint;
+	private bool hasCollided = false;
+	private Vector3 collisionPoint;
 
 	// Use this for initialization
 	void Start () {
 		sunObject = GameObject.Find("Sun");
 		meteor = GameObject.Find ("Meteor");
-		explosion = GameObject.Find ("Explosion");
+		explosion = GameObject.Find ("ExplosionPrefab");
 		meteorInitialPoint = meteor.transform.position;
 	}
 	
@@ -23,8 +25,9 @@ public class EarthSpinner : MonoBehaviour {
 	{
 		transform.RotateAround (sunObject.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
 		if (isCollidingWithMeteor()) {
-			GameObject explosionInstance = Instantiate (explosion, getIntersectionPoint(), Quaternion.identity);
-			Destroy (explosionInstance, 5f);
+			// TODO Find collission point
+			GameObject explosionInstance = Instantiate (explosion, new Vector3(0,2,-4), Quaternion.identity);
+			Destroy (explosionInstance, 10f);
 		}
 	}
 
@@ -32,20 +35,16 @@ public class EarthSpinner : MonoBehaviour {
 		Vector3 earthPosition = transform.position;
 		Vector3 meteorPosition = meteor.transform.position;
 
-		float distance = Vector3.Distance(meteorPosition, earthPosition);
+		float dist = Vector3.Distance (earthPosition, meteorPosition);
+		float radMeteor = meteor.transform.localScale.x * 0.5F;
+		float radEarth = transform.localScale.x * sunObject.transform.localScale.x * 0.5F;
 
-		float earthRadius = transform.localScale.x / 2.0f;
-		float meteorRadius = meteor.transform.localScale.x / 2.0f;
-
-
-		return distance <= meteorRadius + earthRadius;
-	}
-
-	Vector3 getIntersectionPoint(){
-		Vector3 positionDifference = transform.position - meteor.transform.position;
-
-		float earthRadius = transform.localScale.x / 2.0f;
-
-		return transform.position + (positionDifference * earthRadius/positionDifference.magnitude);
+		if (dist < (radEarth * 0.5 + radMeteor * 0.5)) {
+			collisionPoint = earthPosition + ((earthPosition - meteorPosition));
+			Debug.Log ("They collided!");
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

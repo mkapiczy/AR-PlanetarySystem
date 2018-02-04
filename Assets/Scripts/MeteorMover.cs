@@ -6,14 +6,17 @@ public class MeteorMover : MonoBehaviour {
 
 	private GameObject earth;
 	private GameObject moon;
+	private GameObject sun;
 	private Vector3 initialPosition;
 	private bool towards = true;
 	private float speed = 0.05f;
+	private Vector3 collisionPoint;
 
 	// Use this for initialization
 	void Start () {
 		earth = GameObject.Find("Earth");
 		moon = GameObject.Find("Moon");
+		sun = GameObject.Find ("Sun");
 		initialPosition = transform.position;
 	}
 	
@@ -36,12 +39,19 @@ public class MeteorMover : MonoBehaviour {
 		Vector3 earthPosition = earth.transform.position;
 		Vector3 meteorPosition = transform.position;
 
-		float distance = Vector3.Distance(meteorPosition, earthPosition);
+		float dist = Vector3.Distance (earthPosition, meteorPosition);
+		float radMeteor = transform.localScale.x * 0.5F;
+		float radEarth = transform.localScale.x * sun.transform.localScale.x * 0.5F;
 
-		float earthRadius = earth.transform.localScale.x / 2.0f;
-		float meteorRadius = transform.localScale.x / 2.0f;
-
-		return distance <= meteorRadius + earthRadius - 0.1f;
+		if (dist <= (radEarth * 0.5 + radMeteor * 0.5)) {
+			collisionPoint = (meteorPosition - earthPosition * radEarth) + earthPosition;
+			Debug.Log ("They collided!");
+			return true;
+		} else {
+			return false;
+		}
 	}
+
+
 
 }
