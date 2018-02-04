@@ -23,7 +23,9 @@ public class MoonRotator : MonoBehaviour {
 	{
 		angle = angle + orbitSpeed;
 		Vector3 newPosition = new Vector3 (earthObject.transform.position.x + a*Mathf.Cos(angle),transform.position.y,earthObject.transform.position.z + b*Mathf.Sin(angle));
-		transform.Rotate(Vector3.up, spinSpeed * Time.deltaTime);
+		//transform.Rotate(Vector3.up, spinSpeed * Time.deltaTime);
+		Quaternion originalRot = transform.rotation;    
+		transform.rotation = originalRot * Quaternion.AngleAxis(spinSpeed * Time.deltaTime, Vector3.up);
 		transform.position = newPosition;
 	}
 }
