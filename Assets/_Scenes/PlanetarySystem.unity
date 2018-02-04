@@ -835,7 +835,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -740030858
+  randomSeed: -1257390524
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4376,6 +4376,88 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinSpeed: 0
   orbitSpeed: 50
+--- !u!1001 &1828847095
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4518898107016784, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518898107016784, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518898107016784, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518898107016784, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518898107016784, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518898107016784, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518898107016784, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518898107016784, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198693496711901258, guid: 443665d7ecb054f1f963ad364a61a526,
+        type: 2}
+      propertyPath: randomSeed
+      value: -838354570
+      objectReference: {fileID: 0}
+    - target: {fileID: 198693496711901258, guid: 443665d7ecb054f1f963ad364a61a526,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198693496711901258, guid: 443665d7ecb054f1f963ad364a61a526,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198693496711901258, guid: 443665d7ecb054f1f963ad364a61a526,
+        type: 2}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 198693496711901258, guid: 443665d7ecb054f1f963ad364a61a526,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198693496711901258, guid: 443665d7ecb054f1f963ad364a61a526,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198693496711901258, guid: 443665d7ecb054f1f963ad364a61a526,
+        type: 2}
+      propertyPath: moveWithTransform
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198693496711901258, guid: 443665d7ecb054f1f963ad364a61a526,
+        type: 2}
+      propertyPath: moveWithCustomTransform
+      value: 
+      objectReference: {fileID: 1986291694}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 443665d7ecb054f1f963ad364a61a526, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1986291690
 GameObject:
   m_ObjectHideFlags: 0
