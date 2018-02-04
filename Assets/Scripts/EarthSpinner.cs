@@ -9,7 +9,7 @@ public class EarthSpinner : MonoBehaviour {
 	private GameObject meteor;
 	public GameObject explosion;
 	private Vector3 meteorInitialPoint;
-	private bool hasCollided = false;
+	private bool isColliding = false;
 	private Vector3 collisionPoint;
 
 	// Use this for initialization
@@ -26,7 +26,7 @@ public class EarthSpinner : MonoBehaviour {
 		transform.RotateAround (sunObject.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
 		if (isCollidingWithMeteor()) {
 			// TODO Find collission point
-			GameObject explosionInstance = Instantiate (explosion, new Vector3(0,2,-4), Quaternion.identity);
+			GameObject explosionInstance = Instantiate (explosion, collisionPoint, Quaternion.identity);
 			Destroy (explosionInstance, 10f);
 		}
 	}
@@ -37,13 +37,18 @@ public class EarthSpinner : MonoBehaviour {
 
 		float dist = Vector3.Distance (earthPosition, meteorPosition);
 		float radMeteor = meteor.transform.localScale.x * 0.5F;
-		float radEarth = transform.localScale.x * sunObject.transform.localScale.x * 0.5F;
+		float radEarth = transform.localScale.x * 0.5F;
 
 		if (dist < (radEarth * 0.5 + radMeteor * 0.5)) {
-			collisionPoint = earthPosition + ((earthPosition - meteorPosition));
+			if (!isColliding) {
+				collisionPoint = earthPosition + ((earthPosition - meteorPosition) * radEarth) + new Vector3(0.2f,0.2f,0.2f);
+				Debug.Log ("Collision point " + collisionPoint);
+			}
+			isColliding = true;
 			Debug.Log ("They collided!");
 			return true;
 		} else {
+			isColliding = false;
 			return false;
 		}
 	}
